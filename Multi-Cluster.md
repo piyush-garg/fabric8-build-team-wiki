@@ -1,6 +1,3 @@
-** Multi cluster support
-   Copy at https://github.com/fabric8io/fabric8-build-team/issues/8#issuecomment-355946351
-
 1. Plan for scaling OSIO into multiple openshift clusters. Now we only have
    us-starter-east, but there will be few more in the future to scale.
 
