@@ -1,6 +1,6 @@
 # Jenkins monitoring
 
-On behalf of the build team, we would like to monitor the health of fabric8 Jenkins instance [http://jenkins.cd.test.fabric8.io/] .
+On behalf of the build team, we would like to monitor the health of Jenkins instances.
 
 These include
 
