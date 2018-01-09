@@ -2,7 +2,7 @@ On behalf of the build team the health of Jenkins instances must be monitored.
 
 These include
 
-1. The ad-hoc instance at jenkins.cd.test.fabric8.io
+1. The ad-hoc instance at https://jenkins.cd.test.fabric8.io
 1. The slave nodes it brings up
 1. Tenant images
 
