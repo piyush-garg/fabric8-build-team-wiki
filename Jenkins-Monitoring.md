@@ -1,4 +1,4 @@
-On behalf of the build team the health of Jenkins instances must be monitored. 
+On behalf of the build team the health of Jenkins instances must be monitored.
 
 These include
 
@@ -32,14 +32,17 @@ up and most of this info_
 3. 3 kind of probes
 
   1. Active agent: Install a daemon which sends info to a Zabbix master.
+
     1. How much do we have to tweak our GKE firewall config to make this work?
 
   2. Passive agent: Setup a web server on the node which gets queried by zabbix master.
+
     1. Is this connection encrypted?
 
   3. Web probe: Make zabbix query a URL (if provided by Jenkins) repeatedly and
      report on that.
-     1. Does Jenkins provide any such metrics?
+
+    1. Does Jenkins provide any such metrics?
 
 ## Stuff to do:
 
@@ -51,3 +54,6 @@ up and most of this info_
 ## References
 
 1. https://www.datadoghq.com/blog/monitor-jenkins-datadog/
+2. WIT seems to be using some pcp/pmcd tool for getting data. Need more reading.
+   https://github.com/fabric8-services/fabric8-wit/blob/master/Dockerfile.deploy#L14-L22
+   https://github.com/fabric8-services/fabric8-wit/blob/master/wit%2Bpmcd.sh
