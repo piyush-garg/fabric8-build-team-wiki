@@ -4,9 +4,9 @@ On behalf of the build team, we would like to monitor the health of Jenkins inst
 
 These include
 
-  A. The ad-hoc instance at jenkins.cd.test.fabric8.io
-  B. The slave nodes it brings up
-  C. Tenant images
+1. (A) The ad-hoc instance at jenkins.cd.test.fabric8.io
+1. (B) The slave nodes it brings up
+1. (C) Tenant images
 
 ## Metrics that we _really_ care about
 
