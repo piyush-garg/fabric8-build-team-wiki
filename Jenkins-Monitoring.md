@@ -1,6 +1,4 @@
-# Jenkins monitoring
-
-On behalf of the build team, we would like to monitor the health of Jenkins instances.
+On behalf of the build team the health of Jenkins instances must be monitored. 
 
 These include
 
