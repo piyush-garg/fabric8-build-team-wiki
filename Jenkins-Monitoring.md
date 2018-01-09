@@ -2,9 +2,9 @@ On behalf of the build team the health of Jenkins instances must be monitored.
 
 These include
 
-1. (A) The ad-hoc instance at jenkins.cd.test.fabric8.io
-1. (B) The slave nodes it brings up
-1. (C) Tenant images
+1. The ad-hoc instance at jenkins.cd.test.fabric8.io
+1. The slave nodes it brings up
+1. Tenant images
 
 ## Metrics that we _really_ care about
 
@@ -12,7 +12,7 @@ These include
 
    Since builds queuing up is one of the worst issues right now, we should
    hopefully see a big difference in the mertrics. Its up (high liveness) but is
-   not really building anything (low readiness) 1.
+   not really building anything (low readiness)
 
 ## Zabbix
 
@@ -43,7 +43,7 @@ up and most of this info_
 
 ## Stuff to do:
 
-  1. How different is monitoring A B and C?
+  1. How different is monitoring the three different kinds of images?
   2. Pradeepto considers (A) to be a priority now since it blocks other people.
   2. Apparently Prometheus is built into openshift. Should we use it instead of
      zabbix?
