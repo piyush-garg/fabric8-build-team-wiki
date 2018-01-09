@@ -18,10 +18,9 @@ These include
 
 ## Zabbix
 
-**(Thanks to @konarde for a quick heads up and most of this info)**
-
-**I'm a complete newbie; so I might be really wrong here. Please feel free to
-correct the stuff.**
+_I'm a Zabbix newbie; so I might be really wrong here. Please feel free to
+correct anything that is potentially wrong. Thanks to @konarde for a quick heads
+up and most of this info_
 
 1. Zabbix is part of the existing infrastructure and the single point of truth
    already for a bunch of services. There is value in using this and not using
