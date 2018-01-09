@@ -31,18 +31,18 @@ up and most of this info_
 
 3. 3 kind of probes
 
-  1. Active agent: Install a daemon which sends info to a Zabbix master.
+    1. Active agent: Install a daemon which sends info to a Zabbix master.
 
-    1. How much do we have to tweak our GKE firewall config to make this work?
+        1. How much do we have to tweak our GKE firewall config to make this work?
 
-  2. Passive agent: Setup a web server on the node which gets queried by zabbix master.
+    2. Passive agent: Setup a web server on the node which gets queried by zabbix master.
 
-    1. Is this connection encrypted?
+        1. Is this connection encrypted?
 
-  3. Web probe: Make zabbix query a URL (if provided by Jenkins) repeatedly and
-     report on that.
+    3. Web probe: Make zabbix query a URL (if provided by Jenkins) repeatedly and
+       report on that.
 
-    1. Does Jenkins provide any such metrics?
+        1. Does Jenkins provide any such metrics?
 
 ## Stuff to do:
 
