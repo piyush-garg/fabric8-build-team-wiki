@@ -47,9 +47,14 @@ up and most of this info_
 ## Stuff to do:
 
   1. How different is monitoring the three different kinds of images?
-  2. Pradeepto considers (A) to be a priority now since it blocks other people.
-  2. Apparently Prometheus is built into openshift. Should we use it instead of
+  1. Pradeepto considers (A) to be a priority now since it blocks other people.
+  1. Apparently Prometheus is built into openshift. Should we use it instead of
      zabbix?
+  1. Is there a jenkins API to expose anything at all? There is a lot of job
+     level information like [this one][sample] but I cannot find anything
+     global. I could write a task to intentionally expose useful metrics in this
+     API but that might not be a clean way to get this done.
+
 
 ## References
 
@@ -57,3 +62,6 @@ up and most of this info_
 2. WIT seems to be using some pcp/pmcd tool for getting data. Need more reading.
    https://github.com/fabric8-services/fabric8-wit/blob/master/Dockerfile.deploy#L14-L22
    https://github.com/fabric8-services/fabric8-wit/blob/master/wit%2Bpmcd.sh
+
+
+[sample]: https://jenkins.cd.test.fabric8.io/job/fabric8-ui/job/fabric8-planner/job/master/lastBuild/api/json?pretty=true
