@@ -46,15 +46,21 @@ up and most of this info_
 
 ## Stuff to do:
 
-  1. How different is monitoring the three different kinds of images?
-  1. Pradeepto considers (A) to be a priority now since it blocks other people.
-  1. Apparently Prometheus is built into openshift. Should we use it instead of
-     zabbix?
-  1. Is there a jenkins API to expose anything at all? There is a lot of job
-     level information like [this one][sample] but I cannot find anything
-     global. I could write a task to intentionally expose useful metrics in this
-     API but that might not be a clean way to get this done.
+1. How different is monitoring the three different kinds of images?
+1. Pradeepto considers (A) to be a priority now since it blocks other people.
+1. Apparently Prometheus is built into openshift. Should we use it instead of
+   zabbix?
+1. Is there a jenkins API to expose anything at all? There is a lot of job
+   level information like [this one][sample] but I cannot find anything
+   global. I could write a task to intentionally expose useful metrics in this
+   API but that might not be a clean way to get this done.
 
+## Plan of action
+
+1. Get the basic monitoring with Zabbix up quickly with help from the SD team.
+2. Write a jenkins job that is run periodically that reports other metrics to Zabbix.
+    1. This should be able to report things like queueing time to zabbix
+    2. There is hopefully a painless way to send custom data from a jenkins job.
 
 ## References
 
