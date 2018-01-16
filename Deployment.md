@@ -1,3 +1,5 @@
+This document describes how the tenant images we use gets developed and deployed into production.
+
 - Assume a plugin (Eg. https://github.com/jenkinsci/kubernetes-plugin) gets
   updated and a new Jenkins release is required.
 
