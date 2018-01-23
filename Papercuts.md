@@ -36,3 +36,26 @@ This leaves us in this silly clueless state with questions like
 1. [Where does the 'container' function come from?](https://github.com/fabric8io/fabric8-build-team/issues/20) :confused:
 2. [Why does this build fail?](https://github.com/fabric8io/fabric8-build-team/issues/26)
 3. [Jenkins master reboot and slave reconnect issue](https://github.com/fabric8io/fabric8-build-team/issues/17)
+
+5. s2i is a mess. I see no reason why we should be using it.
+
+6. Fabric8 pipeline library.
+
+I'm fundamentally unable to like f-p-library. It reimplements a lot of tooling
+I've learned and liked poorly in groovy. Yet another layer of indirection,
+complexity, code ownership, increased build times, things to learn for love of
+Jenkins?
+
+For example see
+https://github.com/fabric8io/fabric8-pipeline-library/blob/master/vars/goMake.groovy.
+That's 49 lines of groovy poorly implementing docker run make. I'd rather write
+
+```Dockerfile
+FROM golang
+RUN make
+```
+instead of all this mess.
+
+I really really wish I could throw away a lot of this. But most stuff doesn't
+make sense to me anymore and there are probably a lot of people using it
+directly from master.
