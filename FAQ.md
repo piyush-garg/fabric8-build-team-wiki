@@ -15,10 +15,13 @@ working on the [authentication and authorization][issue-auth] spec right now.
 
 # How do I terminate a job that is running?
 
-Only members of [`ci-ops`][ci-ops] or [`ci-admins`][ci-admins] are able to cancel a running job. If you want to be added to any of those teams please ask us on #fabric8-build Mattermost channel. 
+Only members of [`ci-ops`][ci-ops] or [`ci-admins`][ci-admins] are able to cancel
+a running job. If you want to be added to any of those teams please ask us on
+[#fabric8-build][mm-f8-build] Mattermost channel. 
 
 [ci-ops]: https://github.com/orgs/fabric8io/teams/ci-ops
 [ci-admins]: https://github.com/orgs/fabric8io/teams/ci-admins
 [k8s-plugin]: https://github.com/jenkinsci/kubernetes-plugin
 [issue-label]: https://github.com/fabric8io/fabric8-build-team/issues/17
 [issue-auth]: https://github.com/fabric8io/fabric8-build-team/issues/14
+[mm-f8-build]: https://chat.openshift.io/developers/channels/fabric8-cd
