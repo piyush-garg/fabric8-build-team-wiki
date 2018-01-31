@@ -3,10 +3,16 @@ Things that annoy me.
 ### 1. Lack of Docker build support
 
 Just cannot move any of the OSIO components into OSIO without this. Build is
-building crap even build cannot use. The irony of a build tool that cannot use
-itself is beyond me.
+building a CI even build cannot use.
 
-### 2. Lack of code ownership boundary
+### 2. Simple things should be simple.
+
+I had to use this for a while to truly appreciate the beauty of platforms like
+Travis or Circle CI. We need a better ramping up story so that someone can start
+using this service without learning all of Jenkins, pipeline library and all the
+random plugins.
+
+### 3. Lack of code ownership boundary
 
 The default Jenkins file that gets imported into the project contains enough
 nuances to get it wrong. Over time a user is going to change it bit by bit to
@@ -19,11 +25,6 @@ user such that
 
   1. The user maintains only their code, not this weird mix
   2. We have more confidence and easier debug process
-
-### 3. Simple things should be simple.
-
-I had to use this crap for a while to truly appreciate the beauty of platforms
-like Travis or Circle CI.
 
 ### 4. Need a small footprint and API
 
@@ -59,3 +60,8 @@ instead of all this mess.
 I really really wish I could throw away a lot of this. But most stuff doesn't
 make sense to me anymore and there are probably a lot of people using it
 directly from master.
+
+### 7. Automate the test.cd.fabri8.io deployment story
+
+What we have now is the equivalent of the /var/jenkins folder backup. This
+should probably be powered by something like Ansible.
