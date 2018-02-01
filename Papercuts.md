@@ -65,3 +65,26 @@ directly from master.
 
 What we have now is the equivalent of the /var/jenkins folder backup. This
 should probably be powered by something like Ansible.
+
+### 8. Fabric8 maven plugin
+
+Its an overkill for anything we are trying to do. You should not need a 37K LOC
+Java app with 400MB+ deps to generate a bunch of yaml files.
+
+### 9. Installer
+
+There should be one obvious and sane way to install OSIO everywhere - local and
+various prod/testing environments. It would be nice to not invent more software
+here and just use Ansible.
+
+The various repositories with tons of yaml and the intricate process to bring
+them all together really needs to be reconsidered.
+
+### 10. Same base image for everyone?
+
+I'm not so sure about this like one.
+
+Why should all our users run their builds on the same base jenkins image? For
+example, when the UI team wanted g++ on their build server, they had no way to
+do it without installing it per build making things super slow or interfering
+with the build image of everyone else.
