@@ -38,14 +38,22 @@ This leaves us in this silly clueless state with questions like
 2. [Why does this build fail?](https://github.com/fabric8io/fabric8-build-team/issues/26)
 3. [Jenkins master reboot and slave reconnect issue](https://github.com/fabric8io/fabric8-build-team/issues/17)
 
-### 5. s2i is a mess. I see no reason why we should be using it.
+### 5. The [fabric8io/openshift-jenkins-s2i-config](https://github.com/fabric8io/openshift-jenkins-s2i-config) is mediocre beyond words.
+
+1. Kitchen sink, outdated fork
+2. The documentation is the worst. Even basics like how to run the image is missing.
+   https://github.com/fabric8io/openshift-jenkins-s2i-config/issues/142
+3. The build process of a base image and a second s2i build makes the whole
+   process frustratingly slow and painful. Just because redhat built s2i doesn't
+   mean we should use it.
 
 ### 6. Fabric8 pipeline library.
 
-I'm fundamentally unable to like f-p-library. It reimplements a lot of tooling
-I've learned and liked poorly in groovy. Yet another layer of indirection,
-complexity, code ownership, increased build times, things to learn for love of
-Jenkins?
+I'm fundamentally unable to like f-p-library which is honestly a glorified
+kitchen sink of a whole of crap and nothing much more. It reimplements a lot of
+tooling I've learned and liked poorly in groovy. Yet another layer of
+indirection, complexity, code ownership, increased build times, things to learn
+for love of Jenkins?
 
 For example see
 https://github.com/fabric8io/fabric8-pipeline-library/blob/master/vars/goMake.groovy.
