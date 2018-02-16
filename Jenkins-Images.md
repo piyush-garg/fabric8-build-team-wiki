@@ -1,3 +1,5 @@
+_This document is incomplete and there is an open issue to fix it. See https://github.com/fabric8io/fabric8-build-team/issues/25_
+
 There are 3 kinds of images;
 
 1. Tenant images
