@@ -38,6 +38,20 @@ upstream.
 
 The upstream seems to have stopped development so the fork is justified.
 
+# Slave images 
+
+Using a `container {}` block in a Jenkinsfile delegates the tasks to several other containers from the Master images. TODO: Link some examples. 
+
+The most common ones we use are, 
+
+|Container| Source |Tools installed | Notes |
+|---------|--------|----------------|-------|
+| Maven builder | | | | 
+
+
+
+
+
 [1]: https://github.com/openshift/jenkins
 [2]: https://github.com/fabric8-jenkins/jenkins-openshift-base
 [2 Jenkinsfile]: https://github.com/fabric8-jenkins/jenkins-openshift-base/blob/master/Jenkinsfile
