@@ -41,7 +41,12 @@ The upstream seems to have stopped development so the fork is justified.
 # Slave images
 
 Using a `container {}` block in a Jenkinsfile delegates the tasks to several
-other containers from the Master images. TODO: Link some examples.
+other containers from the Master images. For example, [here][container block
+example] using the `container('docker')` uses a separate image. The names and
+images are correlated with the [podTemplate][podTemplate] function from the
+[kubernetes-plugin][kubernetes-plugin]. For example, we accociate the name
+`maven` with the image `fabric8/maven-builder:vd81dedb`
+[here][containerTemplate]
 
 The most common ones we use are,
 
@@ -51,10 +56,13 @@ The most common ones we use are,
 |               |                                                 |                             |       |
 |               |                                                 |                             |       |
 
-
 [1]: https://github.com/openshift/jenkins
 [2 Jenkinsfile]: https://github.com/fabric8-jenkins/jenkins-openshift-base/blob/master/Jenkinsfile
 [2]: https://github.com/fabric8-jenkins/jenkins-openshift-base
 [3]: https://github.com/bparees/openshift-jenkins-s2i-config
 [4]: https://github.com/fabric8io/openshift-jenkins-s2i-config
+[container block example]: https://github.com/jaseemabid/maven-builder/blob/079478cde9e859455aba1574cb71aeb4889201ba/Jenkinsfile#L31
+[containerTemplate]: https://github.com/fabric8io/fabric8-pipeline-library/blob/master/vars/mavenTemplate.groovy#L36
+[kubernetes-plugin]: https://github.com/jenkinsci/kubernetes-plugin
 [maven-builder]: https://github.com/fabric8io-images/maven-builder
+[podTemplate]: https://github.com/jenkinsci/kubernetes-plugin/blob/master/src/main/java/org/csanchez/jenkins/plugins/kubernetes/PodTemplate.java
