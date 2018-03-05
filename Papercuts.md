@@ -115,3 +115,10 @@ story for a CI/CD platform.
 
 In the meanwhile an unreliable CI/CD is worse than not having one.
 
+### 14. The current state of affairs is really shitty.
+
+I'm sure we all know.
+
+### 15. The work is really boring
+
+Baby sitting Jenkins can never be fun.
