@@ -3,16 +3,23 @@ Things that annoy me.
 ### 1. Lack of Docker build support
 
 Just cannot move any of the OSIO components into OSIO without this. Build is
-building a CI even build cannot use.
+building a CI even build cannot use. This product must be dogfood if we need any
+quality out of this.
 
-### 2. Simple things should be simple.
+### 2. Iteration times are ridiculously high 
+
+Changes in a plugin or something goes through a series of Jenkins builds, each
+one potentially taking a very long time. The repository fetish is severely
+hurting development.
+
+### 3. Simple things should be simple.
 
 I had to use this for a while to truly appreciate the beauty of platforms like
 Travis or Circle CI. We need a better ramping up story so that someone can start
 using this service without learning all of Jenkins, pipeline library and all the
 random plugins.
 
-### 3. Lack of code ownership boundary
+### 4. Lack of code ownership boundary
 
 The default Jenkins file that gets imported into the project contains enough
 nuances to get it wrong. Over time a user is going to change it bit by bit to
@@ -26,7 +33,7 @@ user such that
   1. The user maintains only their code, not this weird mix
   2. We have more confidence and easier debug process
 
-### 4. Need a small footprint and API
+### 5. Need a small footprint and API
 
 All the API that is allowed inside the Jenkinsfile should be committed and
 documented. This weird mix of fabric8 pipeline library, 130+ plugins and the
@@ -38,7 +45,7 @@ This leaves us in this silly clueless state with questions like
 2. [Why does this build fail?](https://github.com/fabric8io/fabric8-build-team/issues/26)
 3. [Jenkins master reboot and slave reconnect issue](https://github.com/fabric8io/fabric8-build-team/issues/17)
 
-### 5. The [fabric8io/openshift-jenkins-s2i-config](https://github.com/fabric8io/openshift-jenkins-s2i-config) is mediocre beyond words.
+### 6. The [fabric8io/openshift-jenkins-s2i-config](https://github.com/fabric8io/openshift-jenkins-s2i-config) is mediocre beyond words.
 
 1. Kitchen sink, outdated fork
 2. The documentation is the worst. Even basics like how to run the image is missing.
@@ -47,7 +54,7 @@ This leaves us in this silly clueless state with questions like
    process frustratingly slow and painful. Just because redhat built s2i doesn't
    mean we should use it.
 
-### 6. Fabric8 pipeline library.
+### 7. Fabric8 pipeline library.
 
 I'm fundamentally unable to like f-p-library which is honestly a glorified
 kitchen sink of a whole of crap and nothing much more. It reimplements a lot of
@@ -69,17 +76,17 @@ I really really wish I could throw away a lot of this. But most stuff doesn't
 make sense to me anymore and there are probably a lot of people using it
 directly from master.
 
-### 7. Automate the test.cd.fabri8.io deployment story
+### 8. Automate the test.cd.fabri8.io deployment story
 
 What we have now is the equivalent of the /var/jenkins folder backup. This
 should probably be powered by something like Ansible.
 
-### 8. Fabric8 maven plugin
+### 9. Fabric8 maven plugin
 
 Its an overkill for anything we are trying to do. You should not need a 37K LOC
 Java app with 400MB+ deps to generate a bunch of yaml files.
 
-### 9. Installer
+### 10. Installer
 
 There should be one obvious and sane way to install OSIO everywhere - local and
 various prod/testing environments. It would be nice to not invent more software
@@ -88,7 +95,7 @@ here and just use Ansible.
 The various repositories with tons of yaml and the intricate process to bring
 them all together really needs to be reconsidered.
 
-### 10. Same base image for everyone?
+### 11. Same base image for everyone?
 
 I'm not so sure about this like one.
 
@@ -96,3 +103,11 @@ Why should all our users run their builds on the same base jenkins image? For
 example, when the UI team wanted g++ on their build server, they had no way to
 do it without installing it per build making things super slow or interfering
 with the build image of everyone else.
+
+### 12. Our own CD story needs to improve 
+
+Updating an image is such a manual process. The irony. LOL.
+
+### 13. Tests 
+
+In the meanwhile an unreliable CI/CD is worse than not having one.
