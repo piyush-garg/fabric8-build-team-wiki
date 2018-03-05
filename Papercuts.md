@@ -1,10 +1,12 @@
 Things that annoy me.
 
-### 1. Lack of Docker build support
+### 1. Dogfood! 
 
-Just cannot move any of the OSIO components into OSIO without this. Build is
-building a CI even build cannot use. This product must be dogfood if we need any
-quality out of this.
+Lack of Docker build support makes this whole effort silly.
+
+Just cannot move any of the OSIO components into OSIO and build is building a CI
+even we cannot use. We never see the real builds on prod because its just silly
+template apps, and even the smallest issues persist forever.
 
 ### 2. Iteration times are ridiculously high 
 
@@ -112,3 +114,4 @@ story for a CI/CD platform.
 ### 13. Tests 
 
 In the meanwhile an unreliable CI/CD is worse than not having one.
+
