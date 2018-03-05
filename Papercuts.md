@@ -106,7 +106,8 @@ with the build image of everyone else.
 
 ### 12. Our own CD story needs to improve 
 
-Updating an image is such a manual process. The irony. LOL.
+Updating an image is such a manual process. The irony. We have the worst CI/CD
+story for a CI/CD platform.
 
 ### 13. Tests 
 
