@@ -15,7 +15,7 @@ TODO: Document how each one is built and deployed. Point to the source as much a
  use with OpenShift v3
 * Docker hub - https://hub.docker.com/r/fabric8/jenkins-openshift-base/tags/, you could relate master commit SHA as the tags.
 #### 2. The Jenkins image used by OSIO openshift-jenkins-s2i-config 
-* Source code repository - https://github.com/fabric8io/openshift-jenkins-s2i-config, is uses the above [base image][2] on top of it using S2i strategy builds the OSIO specific image repository 
+* Source code repository - https://github.com/fabric8io/openshift-jenkins-s2i-config, is uses the above [base image][2] on top of it using S2i strategy builds the OSIO specific image repository. we mention the above base image https://github.com/fabric8io/openshift-jenkins-s2i-config/blob/master/Jenkinsfile#L7 while building the s2i image.
 * Docker hub - https://hub.docker.com/r/fabric8/jenkins-openshift/tags/, you could relate master commit SHA as the tags 
 #### 3. Tenant Jenkins fabric8-tenant-jenkins 
 * Source code repository - https://github.com/fabric8-services/fabric8-tenant-jenkins/, this is code for user's tenant jenkins on OSIO. which contains Jenkins and content repository apps. The configs related to both of them lies in this repository. For Jenkins specifically it is here https://github.com/fabric8-services/fabric8-tenant-jenkins/tree/master/apps/jenkins/src/main/fabric8.
