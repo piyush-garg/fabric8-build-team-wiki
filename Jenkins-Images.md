@@ -72,7 +72,7 @@ The most common ones we use are,
 
 | Container     | Source                                          | Tools installed             | Notes |
 |---------------|-------------------------------------------------|-----------------------------|-------|
-| Maven builder | [fabric8io-images/maven-builder][maven-builder] | Maven 3.5.2, Open JDK 1.8.0 | OSIO  |
+| Maven builder | [fabric8io-images/maven-builder][maven-builder] | Maven 3.3.9, Open JDK 1.8.0 | OSIO  |
 |               |                                                 |                             |       |
 |               |                                                 |                             |       |
 
