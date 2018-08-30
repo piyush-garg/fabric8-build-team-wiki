@@ -14,10 +14,10 @@ TODO: Document how each one is built and deployed. Point to the source as much a
 * Source code repository - https://github.com/fabric8-jenkins/jenkins-openshift-base, forked from [openshift/jenkins][1] This repository contains Dockerfiles for Jenkins Docker images intended for
  use with OpenShift v3
 * Docker hub - https://hub.docker.com/r/fabric8/jenkins-openshift-base/tags/, you could relate master commit SHA as the tags.
-#### 2. The Jenkins image used by OSIO openshift-jenkins-s2i-config 
+#### 2. The Jenkins image used by OSIO openshift-jenkins-s2i-config
 * Source code repository - https://github.com/fabric8io/openshift-jenkins-s2i-config, is uses the above [base image][2] on top of it using S2i strategy builds the OSIO specific image repository. we mention the above base image https://github.com/fabric8io/openshift-jenkins-s2i-config/blob/master/Jenkinsfile#L7 while building the s2i image.
-* Docker hub - https://hub.docker.com/r/fabric8/jenkins-openshift/tags/, you could relate master commit SHA as the tags 
-#### 3. Tenant Jenkins fabric8-tenant-jenkins 
+* Docker hub - https://hub.docker.com/r/fabric8/jenkins-openshift/tags/, you could relate master commit SHA as the tags
+#### 3. Tenant Jenkins fabric8-tenant-jenkins
 * Source code repository - https://github.com/fabric8-services/fabric8-tenant-jenkins/, this is code for user's tenant jenkins on OSIO. which contains Jenkins and content repository apps. The configs related to both of them lies in this repository. For Jenkins specifically it is here https://github.com/fabric8-services/fabric8-tenant-jenkins/tree/master/apps/jenkins/src/main/fabric8.
 #### 4. Users Tenant fabric8-tenant
  * Source code repository - https://github.com/fabric8-services/fabric8-tenant/ , The one file which we should be interested in https://github.com/fabric8-services/fabric8-tenant/blob/master/JENKINS_VERSION, this shows Jenkins version deployed on Production.
@@ -29,12 +29,12 @@ For every repository above there is a Jenkisfile which is designed to deploy for
 
 `jenkins-openshift-base (base image) -> openshift-jenkins-s2i-config(Jenkins image) -> fabric8-tenant-jenkins (tenant Jenkins) ->  fabric8-tenant (user tenant )`
 
-* when there is a PR made to base image and after merging(manual merge) to master the [CD pipline](https://jenkins.cd.test.fabric8.io/job/fabric8-jenkins/job/jenkins-openshift-base/job/master/) raises PR to openshift-jenkins-s2i-config by updating the Jenkins image, for eg: https://github.com/fabric8io/openshift-jenkins-s2i-config/pull/141. 
+* when there is a PR made to base image and after merging(manual merge) to master the [CD pipline](https://jenkins.cd.test.fabric8.io/job/fabric8-jenkins/job/jenkins-openshift-base/job/master/) raises PR to openshift-jenkins-s2i-config by updating the Jenkins image, for eg: https://github.com/fabric8io/openshift-jenkins-s2i-config/pull/141.
 * At this point the [CI pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8io-auto-rel/job/openshift-jenkins-s2i-config/view/change-requests/) of openshift-jenkins-s2i-config is triggered and it run some basic [godog test](https://github.com/fabric8-jenkins/godog-jenkins), you can check that in the console output and it comments on your PR `@fabric8cd snapshot Jenkins image is available. docker pull fabric8/jenkins-openshift:SNAPSHOT-PR-141-5` and also comments `Snapshot Jenkins is deployed and running HERE` the second comment is only done if the user who raised the PR is a collaborator of the fabric8io org and this deploys this image on GKE tiger cluster where you have the running Jenkins with this image. You can do some testing there check the jenkins logs here https://<server>/log/all if there are compilation failures for plugins etc. And you can also test by modifying the Jenkins tenant DC(Deployment Config) on OSIO. you can kick off a quickstart to check if everything is good after updating the tenant DC.
-* You need to merge (manual merge) the PR raised to openshift-jenkins-s2i-config and then it triggers the [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8io-auto-rel/job/openshift-jenkins-s2i-config/job/master/) for openshift-jenkins-s2i-config which raises a PR to fabric8-tenant-jenkins for eg  like this https://github.com/fabric8-services/fabric8-tenant-jenkins/pull/66 
-* You need to merge (manual merge) the PR raised to fabric8-tenant-jenkins and that triggers a [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8-services/job/fabric8-tenant-jenkins/job/master/) and raises a PR to fabric8-tenant for eg like https://github.com/fabric8-services/fabric8-tenant/pull/561 
-* This PR is auto merged and it triggers a [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8-services/job/fabric8-tenant/job/master/) 
-After this the build team raises an [issue](https://github.com/openshiftio/openshift.io/issues/2566) for platform team to do a cluster wide tenant update so that the newly released Jenkins Version is merged.
+* You need to merge (manual merge) the PR raised to openshift-jenkins-s2i-config and then it triggers the [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8io-auto-rel/job/openshift-jenkins-s2i-config/job/master/) for openshift-jenkins-s2i-config which raises a PR to fabric8-tenant-jenkins for eg  like this https://github.com/fabric8-services/fabric8-tenant-jenkins/pull/66
+* You need to merge (manual merge) the PR raised to fabric8-tenant-jenkins and that triggers a [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8-services/job/fabric8-tenant-jenkins/job/master/) and raises a PR to fabric8-tenant for eg like https://github.com/fabric8-services/fabric8-tenant/pull/561
+* This PR to fabric8-tenant is auto merged and it triggers a [CD pipeline](https://jenkins.cd.test.fabric8.io/job/fabric8-services/job/fabric8-tenant/job/master/). This job is failing right now and you have to do the work manually. You need to raise a PR to [saas-openshiftio](https://github.com/openshiftio/saas-openshiftio) changing the hash value of fabric8-tenant master like this [PR](https://github.com/openshiftio/saas-openshiftio/pull/1050).
+After this the build team raises an [issue](https://github.com/openshiftio/openshift.io/issues/2566) for platform team to do a cluster wide tenant update so that the newly released Jenkins Version is merged or you can ping on service-delivery channel to merge the PR and do a cluster-wide tenant update.
 
 
 #### 2. [fabric8-jenkins/jenkins-openshift-base][2] forked from [openshift/jenkins][1]
@@ -59,7 +59,7 @@ upstream.
 The upstream seems to have stopped development so the fork is justified.
 
 # Slave images
-We can find the slave images here 
+We can find the slave images here
 Using a `container {}` block in a Jenkinsfile delegates the tasks to several
 other containers from the Master images. For example, [here][container block
 example] using the `container('docker')` uses a separate image. The names and
@@ -77,8 +77,8 @@ The most common ones we use are,
 |               |                                                 |                             |       |
 
 Note:
-Once there is a change made in the maven builder image and merged to master you need to update the [maven template](https://github.com/fabric8io/fabric8-pipeline-library/blob/master/vars/mavenTemplate.groovy#L12 
-) with [image](https://hub.docker.com/r/fabric8/maven-builder/tags/) pushed by your change. 
+Once there is a change made in the maven builder image and merged to master you need to update the [maven template](https://github.com/fabric8io/fabric8-pipeline-library/blob/master/vars/mavenTemplate.groovy#L12
+) with [image](https://hub.docker.com/r/fabric8/maven-builder/tags/) pushed by your change.
 
 [1]: https://github.com/openshift/jenkins
 [2 Jenkinsfile]: https://github.com/fabric8-jenkins/jenkins-openshift-base/blob/master/Jenkinsfile
